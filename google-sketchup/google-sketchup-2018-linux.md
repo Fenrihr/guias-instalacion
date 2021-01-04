@@ -16,6 +16,13 @@ export WINEARCH=win64
 winetricks corefonts vcrun2013 vcrun2015
 ```
 
+## Arranque de Wine
+>> https://wiki.winehq.org/Wineboot
+
+```bash
+wine wineboot
+```
+
 ## Configuración del Entorno Wine
 1. Ejecutar `winetricks`
 2. Seleccionar el prefijo `sketchup`
