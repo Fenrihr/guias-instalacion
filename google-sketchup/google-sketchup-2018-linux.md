@@ -17,7 +17,7 @@ winetricks corefonts vcrun2013 vcrun2015
 ```
 
 ## Arranque de Wine
->> https://wiki.winehq.org/Wineboot
+> https://wiki.winehq.org/Wineboot
 
 ```bash
 wine wineboot
@@ -32,11 +32,18 @@ wine wineboot
     2. Ir a "_Librerías_" e ingresar `mfc140u.dll` en "_New override for library_" y "Agregar"
     3. Aplicar los cambios y salir
     
-## Instalación de Microsoft .NET Framework 4.5.2 (Offline Installer)
-1. Descargar instalador desde [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=42642)
+## Instalación de Microsoft .NET Framework 4.7 (Offline Installer)
+> ## Instalación de Microsoft .NET Framework 4.5.2 (Offline Installer)
+> 1. Descargar instalador desde [aquí](https://www.microsoft.com/en-us/download/details.aspx?id=42642)
+> 2. Ejecutar
+> ```bash
+> wine start /unix ~/Descargas/NDP452-KB2901907-x86-x64-AllOS-ENU.exe
+> ```
+
+1. Descargar instalador desde [aquí](https://www.microsoft.com/en-us/download/confirmation.aspx?id=55167)
 2. Ejecutar
 ```bash
-wine start /unix ~/Descargas/NDP452-KB2901907-x86-x64-AllOS-ENU.exe
+wine start /unix ~/Descargas/NDP47-KB3186497-x86-x64-AllOS-ENU.exe
 ```
 
 ## Instalación de Google Sketchup
