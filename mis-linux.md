@@ -50,3 +50,54 @@ flatpak
 
 ## Zoom
 
+## Anaconda
+
+Instalado desde AUR
+
+Luego de instalar, para habilitar habilitar `conda` en linea de comandos:
+
+```bash
+source /opt/anaconda/bin/activate root
+conda init
+conda deactivate
+
+source ~/.bashrc
+```
+
+Para desactivar que conda se ejecute como entorno predeterminado:
+
+```bash
+conda config --set auto_activate_base False
+```
+
+Para cambiar el directorio por defecto de creación de entornos (por uno con permisos)  ([conda docs](https://conda.io/projects/conda/en/latest/user-guide/configuration/use-condarc.html#specify-environment-directories-envs-dirs)):
+
+1. crear el directorio:
+
+```bash
+mkdir ~/.conda_envs
+```
+
+2. abrir el archivo:
+
+```bash
+nano ~/.condarc
+```
+
+3. agregar el siguiente contenido
+
+```bash
+envs_dirs:
+  - ~/.conda_envs
+```
+
+Darle permisos al usuario actual sobre `/opt/anaconda`
+
+```
+sudo chown -R francisco /opt/anaconda
+```
+
+## gImageReader
+
+escáner OCR de imágenes
+
