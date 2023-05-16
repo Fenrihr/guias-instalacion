@@ -41,6 +41,7 @@ APPS_ADD=(
 	fira-code-fonts
 	jetbrains-mono-fonts-all
 	nextcloud-client
+	nextcloud-client-nautilus
 	solaar
 	qt5-qtbase
 	flameshot
