@@ -164,6 +164,7 @@ FLATPAK_FLATHUB=(
     com.jgraph.drawio.desktop
     org.jdownloader.JDownloader
     io.github.shiftey.Desktop
+    com.spotify.Client
 )
 
 for app in ${FLATPAK_FLATHUB[@]}; do
