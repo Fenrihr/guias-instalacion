@@ -11,6 +11,8 @@ if [ $USER == "root" ];
     else echo ""
 fi
 
+export WORK_DIR=$PWD
+
 # Set dark theme
 # gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
@@ -22,7 +24,9 @@ sudo dnf install -y \
 # Add apps
 APPS_ADD=(	
 	gnome-tweaks
+	wget
 	openssl
+	ca-certificates
 	htop
 	neofetch
 	#virt-manager
@@ -37,6 +41,9 @@ APPS_ADD=(
 	fira-code-fonts
 	jetbrains-mono-fonts-all
 	nextcloud-client
+	solaar
+	qt5-qtbase
+	flameshot
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
@@ -45,6 +52,8 @@ sudo dnf install -y --skip-broken ${APPS_ADD[@]}
 # pop-shell => https://github.com/pop-os/shell
 # menulibre => https://bluesabre.org/projects/menulibre
 # buildah
+# Solaar => Linux Device Manager for Logitech Unifying Receivers and Devices. https://pwr-solaar.github.io/Solaar/
+# nextcloud-client
 
 
 # ------------ 
@@ -178,6 +187,7 @@ done
 source flatpak_libreoffice.sh
 source flatpak_steam.sh
 source flatpak_obstudio.sh
+source teamviewer.sh
 
 # ==============================
 # toolbox -- CONTENEDORES
