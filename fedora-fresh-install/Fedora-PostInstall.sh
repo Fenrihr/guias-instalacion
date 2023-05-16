@@ -148,6 +148,12 @@ FLATPAK_FLATHUB=(
     org.chromium.Chromium
     de.haeckerfelix.Fragments
     org.kde.kdenlive
+    com.gitlab.newsflash
+    md.obsidian.Obsidian
+    com.github.ahrm.sioyek
+    com.jgraph.drawio.desktop
+    org.jdownloader.JDownloader
+    io.github.shiftey.Desktop
 )
 
 for app in ${FLATPAK_FLATHUB[@]}; do
@@ -155,12 +161,18 @@ for app in ${FLATPAK_FLATHUB[@]}; do
 done
 
 # Software Referencias:
-# org.freefilesync.FreeFileSync => Visual folder comparison and synchronization
-# Dconf Editor: Direct editing of the dconf configuration database
-# KDEnlive: editor de video
-# Fragments: torrent
-# Chromium: Chromium Browser
-# org.freeplane.App => 
+# FreeFileSync          => Visual folder comparison and synchronization
+# Dconf Editor          => Direct editing of the dconf configuration database
+# KDEnlive              => editor de video
+# Fragments             => torrent
+# Chromium              => Chromium Browser
+# freeplane             => 
+# newsflash             => Lector de RSS que se integra con Nextcloud
+# Obsidian              => 
+# Sioyek                => PDF viewer designed for reading research papers and technical books
+# Draw.io               =>
+# JDownloader           => Download management tool
+# shiftey.Desktop       => Github Desktop (unofficial)
 
 source flatpak_libreoffice.sh
 source flatpak_steam.sh
