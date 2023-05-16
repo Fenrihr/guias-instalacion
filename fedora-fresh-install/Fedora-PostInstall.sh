@@ -36,6 +36,7 @@ APPS_ADD=(
 	ffmpegthumbnailer
 	fira-code-fonts
 	jetbrains-mono-fonts-all
+	nextcloud-client
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
