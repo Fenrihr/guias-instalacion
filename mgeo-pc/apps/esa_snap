@@ -1,0 +1,20 @@
+#!/bin/bash
+echo "== Instalando esa-snap_all_unix_9_0_0.sh"
+
+# Descargar archivo ZIP de instalación
+wget https://download.esa.int/step/snap/9.0/installers/esa-snap_all_unix_9_0_0.sh
+
+# Descomprimir archivo ZIP
+unzip esa-snap_sentinel_unix_9_0.sh.zip
+
+# Ejecutar instalador
+sudo chmod +x esa-snap_sentinel_unix_9_0.sh
+./esa-snap_sentinel_unix_9_0.sh -c
+
+# Agregar variables de entorno
+echo "export PATH=\$PATH:/usr/local/snap/bin/" >> ~/.bashrc
+echo "export SNAP_VERSION=9.0" >> ~/.bashrc
+echo "export SNAP_HOME=/usr/local/snap" >> ~/.bashrc
+
+# shellcheck disable=SC1090
+source ~/.bashrc
