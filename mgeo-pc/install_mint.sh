@@ -1,8 +1,13 @@
 #!/bin/bash
 
 # based on https://github.com/Diolinux/Linux-Mint-19.x-PosInstall/blob/master/Linux%20Mint%2019.x%20posinstall%20Diolinux.sh
+#
+# EJECUCIÓN
+#           bash install_mint.sh
 
-if [ "$USER" == "root" ]; 
+
+
+if [ "$USER" = "root" ];
     then 
         echo "current user: $USER
         please do not run this script as root user
@@ -48,7 +53,22 @@ sudo apt install -y \
     gnupg \
     software-properties-common \
     git \
-    subversion
+    subversion \
+    parcimonie  \
+    xloadimage \
+    scdaemon \
+    glibc-doc \
+    freerdp2-x11 \
+    libstdc++-9-doc \
+    remmina-plugin-exec \
+    remmina-plugin-kwallet \
+    remmina-plugin-nx \
+    remmina-plugin-spice \
+    remmina-plugin-www \
+    remmina-plugin-xdmcp \
+    db5.3-util \
+    libapache2-mod-svn \
+    subversion-tools
 
 
 # ===============================================================
@@ -62,13 +82,13 @@ sudo apt update && sudo apt upgrade -y
 # ===============================================================
 # Add remotes
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+#sudo flatpak remote-add --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 #sudo flatpak remote-add --if-not-exists gnome-nightly https://nightly.gnome.org/gnome-nightly.flatpakrepo
 #sudo flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
 
-wget https://origin.ostree.endlessm.com/keys/eos-flatpak-keyring.gpg
-sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-apps https://ostree.endlessm.com/ostree/eos-apps
-sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
+#wget https://origin.ostree.endlessm.com/keys/eos-flatpak-keyring.gpg
+#sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-apps https://ostree.endlessm.com/ostree/eos-apps
+#sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-sdk https://ostree.endlessm.com/ostree/eos-sdk
 
 # Remotes references
 # Flathub: https://flatpak.org/setup/Fedora/
@@ -83,47 +103,48 @@ sudo flatpak remote-add --gpg-import=eos-flatpak-keyring.gpg eos-sdk https://ost
 flatpak install -y flathub com.github.tchx84.Flatseal
 
 FLATPAK_FLATHUB=(
-	#org.gnome.gedit
 	org.geany.Geany
 	org.gnome.Boxes
 	com.usebottles.bottles
 	org.freefilesync.FreeFileSync
 	ca.desrt.dconf-editor
-	org.libreoffice.LibreOffice
-	org.freeplane.App
 	org.gimp.GIMP
 	org.inkscape.Inkscape
-	org.chromium.Chromium
 	org.flameshot.Flameshot
 	org.videolan.VLC
-	org.qgis.qgis/x86_64/lts
-	#org.qgis.qgis/x86_64/stable
 )
 
+
+# shellcheck disable=SC2068
 for app in ${FLATPAK_FLATHUB[@]}; do
 	flatpak install -y flathub "$app"
 done
 
-# QGIS
+# Libreoffice
+source apps/libreoffice.sh
+
+# QGIS - Stable
 #flatpak install -y flathub org.qgis.qgis/x86_64/stable
 
 # QGIS - Long Term Support
-#flatpak install -y flathub org.qgis.qgis/x86_64/lts
+flatpak install -y flathub org.qgis.qgis//lts
 
+# Geoda GIS
+source apps/geoda.sh
+
+# Sentinel Application Platform (SNAP)
+source apps/esa_snap.sh
+
+# ======= PERMISOS =======
 flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
 flatpak override com.usebottles.bottles --user --filesystem=home
 flatpak override org.qgis.qgis --user --filesystem=home
-
 
 # ==============================================
 # LIMPIAMOS
 # ==============================================
 sudo apt autoremove
 
-
-
-
-
-
-
+echo "-- Script finalizado --"
+echo "Recordamos instalar IDRISI y otros manualmente"
 
