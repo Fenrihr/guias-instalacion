@@ -191,11 +191,11 @@ done
 # JDownloader           => Download management tool
 # shiftey.Desktop       => Github Desktop (unofficial)
 
-source ./gis_software.sh
-source ./flatpak_libreoffice.sh
-source ./flatpak_steam.sh
-source ./flatpak_obstudio.sh
-source ./teamviewer.shfaltpak
+source ./apps/gis_software.sh
+source ./apps/flatpak_libreoffice.sh
+source ./apps/flatpak_steam.sh
+source ./apps/flatpak_obstudio.sh
+source ./apps/teamviewer.shfaltpak
 
 # ==============================
 # toolbox -- CONTENEDORES

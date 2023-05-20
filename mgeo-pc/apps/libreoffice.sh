@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "== Instalando Libreoffice desde Flatpak"
+
 flatpak install -y flathub org.libreoffice.LibreOffice
 
 # make avaliable libreoffice templates from Nautilus's new file menu

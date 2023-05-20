@@ -1,11 +1,6 @@
 #!/bin/bash
 
 # based on https://github.com/Diolinux/Linux-Mint-19.x-PosInstall/blob/master/Linux%20Mint%2019.x%20posinstall%20Diolinux.sh
-#
-# EJECUCIÓN
-#           bash install_mint.sh
-
-
 
 if [ "$USER" = "root" ];
     then 
@@ -19,7 +14,7 @@ fi
 # ===============================================================
 #                      LIBRERÍAS Y APLICACIONES
 # ===============================================================
-sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
+sudo add-apt-repository ppa:ubuntugis/ubuntugis-unstable
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4EB27DB2A3B88B8B
 
 sudo apt-key export 7FAC5991 | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/google_inc.gpg
@@ -34,8 +29,8 @@ sudo apt update
 # Remove apps (some of them will be replaced with the flatpak version)
 sudo apt remove -y \
 	libreoffice* \
-	vlc
-
+	vlc \
+    thunderbird
 
 # -----------------------
 # Add apps
@@ -53,22 +48,7 @@ sudo apt install -y \
     gnupg \
     software-properties-common \
     git \
-    subversion \
-    parcimonie  \
-    xloadimage \
-    scdaemon \
-    glibc-doc \
-    freerdp2-x11 \
-    libstdc++-9-doc \
-    remmina-plugin-exec \
-    remmina-plugin-kwallet \
-    remmina-plugin-nx \
-    remmina-plugin-spice \
-    remmina-plugin-www \
-    remmina-plugin-xdmcp \
-    db5.3-util \
-    libapache2-mod-svn \
-    subversion-tools
+    subversion
 
 
 # ===============================================================
@@ -103,17 +83,19 @@ sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub
 flatpak install -y flathub com.github.tchx84.Flatseal
 
 FLATPAK_FLATHUB=(
+	#org.gnome.gedit
 	org.geany.Geany
 	org.gnome.Boxes
 	com.usebottles.bottles
 	org.freefilesync.FreeFileSync
 	ca.desrt.dconf-editor
+#	org.libreoffice.LibreOffice
+#	org.freeplane.App
 	org.gimp.GIMP
 	org.inkscape.Inkscape
 	org.flameshot.Flameshot
 	org.videolan.VLC
 )
-
 
 # shellcheck disable=SC2068
 for app in ${FLATPAK_FLATHUB[@]}; do
@@ -129,11 +111,20 @@ source apps/libreoffice.sh
 # QGIS - Long Term Support
 flatpak install -y flathub org.qgis.qgis//lts
 
+# GRASS GIS
+sudo apt install -y grass
+
+# SAGA GIS
+sudo apt install -y saga
+
 # Geoda GIS
 source apps/geoda.sh
 
 # Sentinel Application Platform (SNAP)
 source apps/esa_snap.sh
+
+# TeamViwer
+source apps/teamviewer.sh
 
 # ======= PERMISOS =======
 flatpak override com.usebottles.bottles --user --filesystem=xdg-data/applications
@@ -143,6 +134,8 @@ flatpak override org.qgis.qgis --user --filesystem=home
 # ==============================================
 # LIMPIAMOS
 # ==============================================
+sudo apt update && apt --fix-broken install #to add potential missing dependencies
+
 sudo apt autoremove
 
 echo "-- Script finalizado --"
