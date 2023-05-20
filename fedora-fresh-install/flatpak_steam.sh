@@ -5,10 +5,10 @@
 FLATPAK_FLATHUB=(
 	com.valvesoftware.Steam
 	com.valvesoftware.Steam.CompatibilityTool.Boxtron
-	com.valvesoftware.Steam.Utility.protontricks
+	com.github.Matoking.protontricks
 	com.valvesoftware.SteamLink
 	org.freedesktop.Platform.VulkanLayer.MangoHud
-	org.freedesktop.Platform.VulkanLayer.vkBasalt
+	org.freedesktop.Platform.VulkanLayer.vkBasalt//22.08
 	com.valvesoftware.Steam.Utility.gamescope
 )
 
