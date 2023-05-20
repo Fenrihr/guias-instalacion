@@ -21,6 +21,9 @@ sudo dnf install -y \
 	https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
 	https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
+# add repositorio extras
+sudo dnf copr enable refi64/webapp-manager
+
 # Add apps
 APPS_ADD=(	
 	gnome-tweaks
@@ -31,7 +34,7 @@ APPS_ADD=(
 	neofetch
 	#virt-manager
 	zsh
-    #snapd
+  #snapd
 	menulibre
 	#buildah
 	#pop-shell
@@ -45,6 +48,8 @@ APPS_ADD=(
 	solaar
 	qt5-qtbase
 	flameshot
+  webapp-manager
+  spice-vdagent
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
@@ -62,7 +67,7 @@ sudo dnf install -y --skip-broken ${APPS_ADD[@]}
 APPS_REMOVE=(
 	libreoffice*
 	#gnome-extensions-app
-	gedit
+	#gedit
 	#gnome-boxes
 	#gnome-calendar
 	cheese
@@ -147,28 +152,28 @@ FLATPAK_FLATHUB=(
 	#org.gnome.FileRoller
 	ca.desrt.dconf-editor
 	org.freefilesync.FreeFileSync
-	org.keepassxc.KeePassXC
-    com.calibre_ebook.calibre
-    flathub org.freeplane.App
-    #com.github.phase1geo.minder
-    org.gimp.GIMP
-    org.inkscape.Inkscape
-    io.dbeaver.DBeaverCommunity
-    com.jetbrains.PyCharm-Professional
-    org.telegram.desktop
-    org.chromium.Chromium
-    de.haeckerfelix.Fragments
-    org.kde.kdenlive
-    com.gitlab.newsflash
-    md.obsidian.Obsidian
-    com.github.ahrm.sioyek
-    com.jgraph.drawio.desktop
-    org.jdownloader.JDownloader
-    io.github.shiftey.Desktop
-    com.spotify.Client
+	#org.keepassxc.KeePassXC  # RMP
+  com.calibre_ebook.calibre
+  flathub org.freeplane.App
+  #com.github.phase1geo.minder
+  org.gimp.GIMP
+  org.inkscape.Inkscape
+  io.dbeaver.DBeaverCommunity
+  #com.jetbrains.PyCharm-Professional  # SNAP
+  org.telegram.desktop
+  #org.chromium.Chromium
+  de.haeckerfelix.Fragments
+  org.kde.kdenlive
+  com.gitlab.newsflash
+  md.obsidian.Obsidian
+  com.github.ahrm.sioyek
+  com.jgraph.drawio.desktop
+  org.jdownloader.JDownloader
+  io.github.shiftey.Desktop
+  com.spotify.Client
 )
 
-for app in ${FLATPAK_FLATHUB[@]}; do
+for app in "${FLATPAK_FLATHUB[@]}"; do
 	flatpak install -y flathub "$app"
 done
 
@@ -186,10 +191,11 @@ done
 # JDownloader           => Download management tool
 # shiftey.Desktop       => Github Desktop (unofficial)
 
-source flatpak_libreoffice.sh
-source flatpak_steam.sh
-source flatpak_obstudio.sh
-source teamviewer.sh
+source ./gis_software.sh
+source ./flatpak_libreoffice.sh
+source ./flatpak_steam.sh
+source ./flatpak_obstudio.sh
+source ./teamviewer.shfaltpak
 
 # ==============================
 # toolbox -- CONTENEDORES
