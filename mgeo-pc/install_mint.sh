@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # based on https://github.com/Diolinux/Linux-Mint-19.x-PosInstall/blob/master/Linux%20Mint%2019.x%20posinstall%20Diolinux.sh
 
@@ -48,7 +48,11 @@ sudo apt install -y \
     gnupg \
     software-properties-common \
     git \
-    subversion
+    subversion \
+    wine \
+    winetricks \
+    mono-complete \
+
 
 
 # ===============================================================
