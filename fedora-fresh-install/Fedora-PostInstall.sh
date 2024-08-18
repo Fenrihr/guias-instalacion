@@ -34,7 +34,7 @@ APPS_ADD=(
 	neofetch
 	#virt-manager
 	zsh
-  #snapd
+    #snapd
 	menulibre
 	#buildah
 	#pop-shell
@@ -46,13 +46,18 @@ APPS_ADD=(
 	nextcloud-client
 	nextcloud-client-nautilus
 	solaar
+    vlc
 	qt5-qtbase
 	flameshot
-  webapp-manager
-  spice-vdagent
+    webapp-manager
+    spice-vdagent
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
+
+sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y
+
+sudo dnf install lame\* --exclude=lame-devel
 
 # Referencias
 # pop-shell => https://github.com/pop-os/shell
@@ -128,49 +133,51 @@ flatpak install -y flathub com.github.tchx84.Flatseal
 
 # GNOME APPS
 FLATPAK_FLATHUB=(
-	org.gnome.gedit
-	#org.gnome.Boxes
-	#org.gnome.Calendar
+    org.gnome.gedit
+    #org.gnome.Boxes
+    #org.gnome.Calendar
     org.gnome.Cheese
-	#org.gnome.clocks
-	#org.gnome.Contacts
-	#org.gnome.Maps
-	#org.gnome.Photos
-	#org.gnome.Totem
-	#org.gnome.Weather
-	#org.gnome.Characters
-	#org.gnome.Glade
-	#org.gnome.Logs
-	#org.gnome.Screenshot
-	#org.gnome.Todo
-	#org.gnome.font-viewer
-	# Disk Usage Analyzer
-	org.gnome.baobab	
-	# Eye of GNOME Image Viewer
-	org.gnome.eog
-	#org.gnome.Calculator
-	#org.gnome.FileRoller
-	ca.desrt.dconf-editor
-	org.freefilesync.FreeFileSync
-	#org.keepassxc.KeePassXC  # RMP
-  com.calibre_ebook.calibre
-  flathub org.freeplane.App
-  #com.github.phase1geo.minder
-  org.gimp.GIMP
-  org.inkscape.Inkscape
-  io.dbeaver.DBeaverCommunity
-  #com.jetbrains.PyCharm-Professional  # SNAP
-  org.telegram.desktop
-  #org.chromium.Chromium
-  de.haeckerfelix.Fragments
-  org.kde.kdenlive
-  com.gitlab.newsflash
-  md.obsidian.Obsidian
-  com.github.ahrm.sioyek
-  com.jgraph.drawio.desktop
-  org.jdownloader.JDownloader
-  io.github.shiftey.Desktop
-  com.spotify.Client
+    #org.gnome.clocks
+    #org.gnome.Contacts
+    #org.gnome.Maps
+    #org.gnome.Photos
+    #org.gnome.Totem
+    #org.gnome.Weather
+    #org.gnome.Characters
+    #org.gnome.Glade
+    #org.gnome.Logs
+    #org.gnome.Screenshot
+    #org.gnome.Todo
+    #org.gnome.font-viewer
+    # Disk Usage Analyzer
+    org.gnome.baobab	
+    # Eye of GNOME Image Viewer
+    org.gnome.eog
+    #org.gnome.Calculator
+    #org.gnome.FileRoller
+    ca.desrt.dconf-editor
+    org.freefilesync.FreeFileSync
+    #org.keepassxc.KeePassXC  # RMP
+    com.calibre_ebook.calibre
+    flathub org.freeplane.App
+    #com.github.phase1geo.minder
+    org.gimp.GIMP
+    org.inkscape.Inkscape
+    io.dbeaver.DBeaverCommunity
+    #com.jetbrains.PyCharm-Professional  # SNAP
+    org.telegram.desktop
+    #org.chromium.Chromium
+    de.haeckerfelix.Fragments
+    org.kde.kdenlive
+    com.gitlab.newsflash
+    md.obsidian.Obsidian
+    com.github.ahrm.sioyek
+    com.jgraph.drawio.desktop
+    org.jdownloader.JDownloader
+    io.github.shiftey.Desktop
+    com.spotify.Client
+    io.github.alainm23.planify
+    info.portfolio_performance.PortfolioPerformance
 )
 
 for app in "${FLATPAK_FLATHUB[@]}"; do
