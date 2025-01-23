@@ -15,3 +15,6 @@ TO_ADD=(
 for app in "${TO_ADD[@]}"; do
 	sudo dnf -y install "$app"
 done
+
+# Actualizamos
+sudo dnf update
