@@ -20,3 +20,6 @@ flatpak run --devel --command=pip3 org.qgis.qgis install geopandas --user
 
 # Google Earth Pro
 flatpak install -y com.google.EarthPro
+
+# Actualizamos
+sudo dnf update
