@@ -53,6 +53,7 @@ APPS_ADD=(
   spice-vdagent
   # Gestor de contraseñas
   keepassxc
+  wget
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
@@ -214,6 +215,7 @@ source ./apps/flatpak_obstudio.sh
 source ./apps/teamviewer.sh
 source ./apps/virtualbox.sh
 source ./apps/yubikey_manager.sh
+source ./apps/balena_etcher.sh
 
 # ==============================
 # CONTENEDORES
