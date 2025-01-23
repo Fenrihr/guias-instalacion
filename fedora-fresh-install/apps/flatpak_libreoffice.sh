@@ -9,3 +9,5 @@ ln -s \
 /var/lib/flatpak/app/org.libreoffice.LibreOffice/current/active/files/libreoffice/share/template/common \
 $HOME/Templates/0-Libreoffice/Templates
 
+# Actualizamos
+sudo dnf update
