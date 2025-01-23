@@ -34,7 +34,7 @@ APPS_ADD=(
 	neofetch
 	#virt-manager
 	zsh
-    #snapd
+  snapd
 	menulibre
 	#buildah
 	#pop-shell
@@ -46,11 +46,13 @@ APPS_ADD=(
 	nextcloud-client
 	nextcloud-client-nautilus
 	solaar
-    vlc
+  vlc
 	qt5-qtbase
 	flameshot
-    webapp-manager
-    spice-vdagent
+  webapp-manager
+  spice-vdagent
+  # Gestor de contraseñas
+  keepassxc
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
@@ -73,25 +75,25 @@ APPS_REMOVE=(
 	libreoffice*
 	#gnome-extensions-app
 	#gedit
-	#gnome-boxes
-	#gnome-calendar
+	gnome-boxes
+	gnome-calendar
 	cheese
 	#gnome-clocks
-	#gnome-contacts
-	#gnome-maps
-	#gnome-photos
+	gnome-contacts
+	gnome-maps
+	gnome-photos
 	#totem
-	#gnome-weather
-	#gnome-characters
+	gnome-weather
+	gnome-characters
 	#glade
-	#gnome-logs
-	#gnome-screenshot
+	gnome-logs
+	gnome-screenshot
 	gnome-todo
-	#gnome-usage
-	#gnome-font-viewer
+	gnome-usage
+	gnome-font-viewer
 	baobab
 	eog
-	#gnome-calculator
+	gnome-calculator
 )	
 
 sudo dnf remove -y --skip-broken ${APPS_REMOVE[@]}
@@ -134,18 +136,18 @@ flatpak install -y flathub com.github.tchx84.Flatseal
 # GNOME APPS
 FLATPAK_FLATHUB=(
     org.gnome.gedit
-    #org.gnome.Boxes
-    #org.gnome.Calendar
+    org.gnome.Boxes
+    org.gnome.Calendar
     org.gnome.Cheese
     #org.gnome.clocks
     #org.gnome.Contacts
-    #org.gnome.Maps
-    #org.gnome.Photos
+    org.gnome.Maps
+    org.gnome.Photos
     #org.gnome.Totem
     #org.gnome.Weather
-    #org.gnome.Characters
+    org.gnome.Characters
     #org.gnome.Glade
-    #org.gnome.Logs
+    org.gnome.Logs
     #org.gnome.Screenshot
     #org.gnome.Todo
     #org.gnome.font-viewer
@@ -153,13 +155,13 @@ FLATPAK_FLATHUB=(
     org.gnome.baobab	
     # Eye of GNOME Image Viewer
     org.gnome.eog
-    #org.gnome.Calculator
+    org.gnome.Calculator
     #org.gnome.FileRoller
     ca.desrt.dconf-editor
     org.freefilesync.FreeFileSync
     #org.keepassxc.KeePassXC  # RMP
     com.calibre_ebook.calibre
-    flathub org.freeplane.App
+#    flathub org.freeplane.App
     #com.github.phase1geo.minder
     org.gimp.GIMP
     org.inkscape.Inkscape
@@ -174,10 +176,17 @@ FLATPAK_FLATHUB=(
     com.github.ahrm.sioyek
     com.jgraph.drawio.desktop
     org.jdownloader.JDownloader
+    # Github Desktop
     io.github.shiftey.Desktop
     com.spotify.Client
+    # Lista de tareas
     io.github.alainm23.planify
+    # Seguimiento de inversiones
     info.portfolio_performance.PortfolioPerformance
+    # Escritorios virtuales
+    org.remmina.Remmina
+    # Cliente de bittorrent
+    org.qbittorrent.qBittorrent
 )
 
 for app in "${FLATPAK_FLATHUB[@]}"; do
@@ -200,9 +209,11 @@ done
 
 source ./apps/gis_software.sh
 source ./apps/flatpak_libreoffice.sh
-source ./apps/flatpak_steam.sh
+#source ./apps/flatpak_steam.sh
 source ./apps/flatpak_obstudio.sh
-source ./apps/teamviewer.shfaltpak
+source ./apps/teamviewer.sh
+source ./apps/virtualbox.sh
+source ./apps/yubikey_manager.sh
 
 # ==============================
 # toolbox -- CONTENEDORES
