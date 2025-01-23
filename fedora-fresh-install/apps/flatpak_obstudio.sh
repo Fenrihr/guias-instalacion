@@ -10,3 +10,7 @@ FLATPAK_FLATHUB=(
 for app in ${FLATPAK_FLATHUB[@]}; do
 	flatpak install -y flathub "$app"
 done
+
+
+# Actualizamos
+sudo dnf update
