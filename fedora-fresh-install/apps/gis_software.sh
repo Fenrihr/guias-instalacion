@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo -e "\e[1;32m\n[INFO] - Instalando GIS.\n\e[0m"
+sleep 5
+
 # QGIS `stable` => Ultima versión estable
 # QGIS `lts` => Versión "Long Term Support" (soporte de largo término)
 flatpak install -y flathub  org.qgis.qgis//stable
