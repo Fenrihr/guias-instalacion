@@ -10,4 +10,4 @@ sudo dnf -y install ./teamviewer.x86_64.rpm
 rm teamviewer.x86_64.rpm
 
 # Actualizamos
-sudo dnf update
+sudo dnf update -y
