@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo -e "\e[1;32m\n[INFO] - Instalando Virtualbox.\n\e[0m"
+sleep 5
+
 sudo dnf -y install @development-tools
 
 sudo dnf -y install kernel-headers kernel-devel dkms elfutils-libelf-devel qt5-qtx11extras dkms kernel-devel gcc bzip2 make curl
