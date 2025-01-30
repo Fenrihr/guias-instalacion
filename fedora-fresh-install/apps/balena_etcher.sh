@@ -14,4 +14,4 @@ sudo dnf -y install ./balena-etcher-${RELEASE}.x86_64.rpm
 rm balena-etcher-${RELEASE}.x86_64.rpm
 
 # Actualizamos
-sudo dnf update
+sudo dnf update -y
