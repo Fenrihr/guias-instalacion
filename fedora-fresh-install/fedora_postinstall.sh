@@ -325,6 +325,7 @@ source ./apps/flatpak_obstudio.sh
 source ./apps/yubikey_manager.sh
 source ./apps/balena_etcher.sh
 source ./apps/google_chrome.sh
+source ./apps/pycharm_profesional.sh
 
 # ==============================
 # CONTENEDORES
