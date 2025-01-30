@@ -13,4 +13,4 @@ done
 
 
 # Actualizamos
-sudo dnf update
+sudo dnf update -y
