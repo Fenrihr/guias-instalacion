@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo -e "\e[1;32m\n[INFO] - Instalando OBS Studio.\n\e[0m"
+sleep 5
+
 # SOURCE: https://steamcommunity.com/sharedfiles/filedetails/?id=2615011323
 
 FLATPAK_FLATHUB=(
