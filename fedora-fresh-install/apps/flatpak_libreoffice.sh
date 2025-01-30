@@ -10,4 +10,4 @@ ln -s \
 $HOME/Templates/0-Libreoffice/Templates
 
 # Actualizamos
-sudo dnf update
+sudo dnf update -y
