@@ -17,4 +17,4 @@ for app in "${TO_ADD[@]}"; do
 done
 
 # Actualizamos
-sudo dnf update
+sudo dnf update -y
