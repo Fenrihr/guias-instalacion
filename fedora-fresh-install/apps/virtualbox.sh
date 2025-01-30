@@ -25,4 +25,4 @@ sudo usermod -aG vboxusers $USER
 newgrp vboxusers
 
 # Actualizamos
-sudo dnf update
+sudo dnf update -y
