@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-sudo dnf -y install pam_yubico pam-u2f yubikey-manager yubikey-manager-qt yubikey-personalization-gui gnome-screenshot pcsc-lite
+echo -e "\e[1;32m\n[INFO] - Instalando Yubikey.\n\e[0m"
+sleep 5
+
+#sudo dnf -y install pam_yubico pam-u2f yubikey-manager yubikey-manager-qt yubikey-personalization-gui pcsc-lite
 
 TO_ADD=(
   pam_yubico
@@ -8,7 +11,6 @@ TO_ADD=(
   yubikey-manager
   yubikey-manager-qt
   yubikey-personalization-gui
-  gnome-screenshot
   pcsc-lite
 )
 
