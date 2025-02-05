@@ -154,7 +154,9 @@ APPS_ADD=(
     unzip
     p7zip
     p7zip-plugins
-    unrar 
+    unrar
+    git
+    git-lfs
 )
 
 sudo dnf install -y --skip-broken ${APPS_ADD[@]}
