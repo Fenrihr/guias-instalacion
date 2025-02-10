@@ -318,6 +318,7 @@ done
 echo -e "\e[1;32m\n[INFO] - Otras aplicaciones.\n\e[0m"
 sleep 5
 
+source ./apps/docker.sh
 source ./apps/gis_software.sh
 source ./apps/flatpak_libreoffice.sh
 #source ./apps/flatpak_steam.sh
