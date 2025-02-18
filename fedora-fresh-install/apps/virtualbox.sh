@@ -41,6 +41,8 @@ sudo mokutil --import /var/lib/shim-signed/mok/MOK.der
 
 sudo rcvboxdrv setup
 # sudo /sbin/vboxconfig
+# sudo lsmod | grep -E 'kvm|vbox'
+# sudo rmmod kvm_amd kvm
 
 echo -e "\e[1;32m\n[INFO] - El sistema se debe reiniciar.\n\e[0m"
 exit 1
